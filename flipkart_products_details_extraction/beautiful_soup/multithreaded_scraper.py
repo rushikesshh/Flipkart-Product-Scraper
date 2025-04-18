@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup  # Import BeautifulSoup for parsing HTML
 DOWNLOAD_DELAY = 3  # Adjust delay to avoid being blocked
 RETRY_TIMES = 3  # Retry 3 times
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-LOG_FILE = 'output/flipkart_spider.log'
+LOG_FILE = 'output/flipkart_multithreaded.log'
 
 # Log function to simulate Scrapy's logging
 def log(message):
