@@ -101,24 +101,24 @@ Logs : output/flipkart_spider.log
 
 ## Error Handling:
 
-```bash
+
 Both scrapers implement retries for failed requests. Scrapy’s retry mechanism is built-in, while the multithreaded approach uses custom retry logic.
 
 Logs are generated for both scrapers to track failures and issues during the scraping process.
-```
+
 
 ## Respecting Flipkart’s Rate-Limits:
 
-```bash
+
 Both approaches ensure rate-limiting by adding delays between requests (DOWNLOAD_DELAY for Scrapy, manual sleep for multithreading).
 
 The use of proper user-agent headers helps in mimicking real user traffic, reducing the chance of IP blocking.
-```
+
 
 ## Scaling Considerations:
 
-```bash
+
 Scrapy is better suited for larger-scale scraping due to its asynchronous nature and more efficient resource handling.
 
 For small-scale scraping or a few pages, the multithreaded approach might be sufficient and simpler to implement.
-```
+
