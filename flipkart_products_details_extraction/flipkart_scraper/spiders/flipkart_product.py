@@ -23,9 +23,16 @@ class FlipkartProductSpider(scrapy.Spider):
     def start_requests(self):
         with open('urls.txt', 'r') as f:
             urls = [line.strip() for line in f if line.strip()]
+
+        headers = {
+        "User-Agent": self.custom_settings['USER_AGENT'],
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Referer": "https://www.flipkart.com/"
+             }
         
         for url in urls:
-            yield scrapy.Request(url=url, callback=self.parse, errback=self.handle_failure)
+            yield scrapy.Request(url=url, callback=self.parse, errback=self.handle_failure, headers=headers)
 
     def parse(self, response):
         url_params = re.search(r'q=([^&]+)&page=(\d+)', response.url)
